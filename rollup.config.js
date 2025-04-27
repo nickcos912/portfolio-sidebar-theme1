@@ -3,51 +3,75 @@ import babel from '@rollup/plugin-babel';
 import { rollupPluginHTML as html } from '@web/rollup-plugin-html';
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import esbuild from 'rollup-plugin-esbuild';
+import { LitElement, html, css } from "lit";
+import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-export default {
-  input: 'index.html',
-  output: {
-    entryFileNames: '[hash].js',
-    chunkFileNames: '[hash].js',
-    assetFileNames: '[hash][extname]',
-    format: 'es',
-    dir: 'public',
-  },
-  preserveEntrySignatures: false,
+/**
+ * `portfolio-sidebar-theme`
+ * @element portfolio-sidebar-theme
+ */
+export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
+  static get tag() {
+    return "portfolio-sidebar-theme";
+  }
 
-  plugins: [
-    /** Enable using HTML as rollup entrypoint */
-    html({
-      minify: true,
-    }),
-    /** Resolve bare module imports */
-    nodeResolve(),
-    /** Minify JS, compile JS to a lower language target */
-    esbuild({
-      minify: true,
-      target: ['chrome64', 'firefox67', 'safari11.1'],
-    }),
-    /** Bundle assets references via import.meta.url */
-    importMetaAssets(),
-    /** Minify html and css tagged template literals */
-    babel({
-      plugins: [
-        [
-          'babel-plugin-template-html-minifier',
-          {
-            modules: { lit: ['html', { name: 'css', encapsulation: 'style' }] },
-            failOnError: false,
-            strictCSS: true,
-            htmlMinifier: {
-              collapseWhitespace: true,
-              conservativeCollapse: true,
-              removeComments: true,
-              caseSensitive: true,
-              minifyCSS: true,
-            },
-          },
-        ],
-      ],
-    }),
-  ],
-};
+  constructor() {
+    super();
+    this.title = "";
+    this.t = this.t || {};
+    this.t = {
+      ...this.t,
+      title: "Title",
+    };
+    this.registerLocalization({
+      context: this,
+      localesPath: new URL("./locales/portfolio-sidebar-theme.ar.json", import.meta.url).href + "/../",
+      locales: ["ar", "es", "hi", "zh"],
+    });
+  }
+
+  static get properties() {
+    return {
+      ...super.properties,
+      title: { type: String },
+    };
+  }
+
+  static get styles() {
+    return [
+      super.styles,
+      css`
+        :host {
+          display: block;
+          color: var(--ddd-theme-primary);
+          background-color: var(--ddd-theme-accent);
+          font-family: var(--ddd-font-navigation);
+        }
+        .wrapper {
+          margin: 0;
+          padding: var(--ddd-spacing-4);
+          display: flex;
+          min-height: 100vh;
+        }
+        h3 span {
+          font-size: var(--portfolio-sidebar-theme-label-font-size, var(--ddd-font-size-s));
+        }
+      `,
+    ];
+  }
+
+  render() {
+    return html`
+      <div class="wrapper">
+        ${this.title ? html`<h3><span>${this.t.title}:</span> ${this.title}</h3>` : ''}
+        <slot></slot>
+      </div>
+    `;
+  }
+
+  static get haxProperties() {
+    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url).href;
+  }
+}
+globalThis.customElements.define(PortfolioSidebarTheme.tag, PortfolioSidebarTheme);
