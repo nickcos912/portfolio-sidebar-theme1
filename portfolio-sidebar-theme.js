@@ -8,7 +8,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
  * `portfolio-sidebar-theme`
- * @element portfolio-sidebar-theme
+ * Web component to structure a sidebar layout.
  */
 export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   static get tag() {
@@ -18,7 +18,6 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
     this.t = {
       ...this.t,
       title: "Title",
@@ -43,18 +42,14 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          color: var(--ddd-theme-primary);
-          background-color: var(--ddd-theme-accent);
+          background-color: transparent;
           font-family: var(--ddd-font-navigation);
         }
         .wrapper {
           margin: 0;
-          padding: var(--ddd-spacing-4);
+          padding: 0;
           display: flex;
           min-height: 100vh;
-        }
-        h3 span {
-          font-size: var(--portfolio-sidebar-theme-label-font-size, var(--ddd-font-size-s));
         }
       `,
     ];
@@ -63,7 +58,6 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="wrapper">
-        ${this.title ? html`<h3><span>${this.t.title}:</span> ${this.title}</h3>` : ''}
         <slot></slot>
       </div>
     `;
@@ -73,4 +67,5 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url).href;
   }
 }
+
 globalThis.customElements.define(PortfolioSidebarTheme.tag, PortfolioSidebarTheme);
