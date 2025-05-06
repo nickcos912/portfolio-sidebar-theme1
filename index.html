@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nicholas Costanzo | Portfolio</title>
   <script type="module" src="./portfolio-sidebar-theme.js"></script>
-  <!-- All styles must be internal; external stylesheets are not allowed. -->
+  <script type="module" src="./custom-sections.js"></script>
   <style>
     body {
       margin: 0;
@@ -31,9 +31,7 @@
 </head>
 <body>
   <div class="loading-text" id="loadingScreen">INITIALIZING NICHOLAS.EXE...</div>
-
   <portfolio-sidebar-theme></portfolio-sidebar-theme>
-
   <script>
     window.addEventListener('load', () => {
       document.getElementById('loadingScreen').style.display = 'none';
