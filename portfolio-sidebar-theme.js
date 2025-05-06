@@ -42,7 +42,7 @@ class PortfolioSidebarTheme extends LitElement {
       font-size: 1em;
     }
     nav button:hover {
-      background: #444;
+      background: #222;
     }
     main {
       flex: 1;
@@ -70,7 +70,7 @@ class PortfolioSidebarTheme extends LitElement {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      background: #222;
+      background: #0f3169;
       color: white;
       border: none;
       border-radius: 50%;
@@ -83,7 +83,7 @@ class PortfolioSidebarTheme extends LitElement {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      background: #222;
+      background: #0f3169;
       color: white;
       text-decoration: none;
       font-size: 1rem;
@@ -93,7 +93,7 @@ class PortfolioSidebarTheme extends LitElement {
       transition: background 0.3s;
     }
     .download-resume-btn:hover {
-      background: #444;
+      background: #222;
     }
     iframe {
       border: none;
@@ -224,6 +224,7 @@ class PortfolioSidebarTheme extends LitElement {
           <div class="about-text">
             I am currently pursuing a degree in Enterprise Technology Integration at Penn State. 
             I’m passionate about problem-solving and applying technology to create real-world solutions.
+            I enjoy hanging with friends and learning new techniques to hone my skills in my free time.
           </div>
         </section>
 
