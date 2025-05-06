@@ -151,7 +151,7 @@ class PortfolioSidebarTheme extends LitElement {
       </nav>
       <main>
         <section id="screen-1">
-          <img class="profile-pic" src="nicholas.jpg" alt="Nicholas Costanzo" />
+          <img class="profile-pic" src="/nicholas.jpg" alt="Nicholas Costanzo" />
           <h1>Nicholas Costanzo</h1>
           <p>ETI Student | The Pennsylvania State University</p>
         </section>
