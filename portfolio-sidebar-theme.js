@@ -180,7 +180,7 @@ class PortfolioSidebarTheme extends LitElement {
           <a href="/Nicholas_Costanzo_Resume.pdf" download class="download-resume-btn" style="
             display: inline-block;
             margin-top: 1.5rem;
-            background: #222;
+            background: #0f3169;
             color: white;
             text-decoration: none;
             padding: 0.5em 1em;
@@ -242,11 +242,6 @@ class PortfolioSidebarTheme extends LitElement {
           </div>
         </section>
       </main>
-
-      <button class="scroll-top-btn" @click="${this._scrollToTop}">↑</button>
-      ${this.activeScreen === 'screen-2' ? html`
-        <a class="download-resume-btn" href="./Nicholas_Costanzo_Resume.pdf" download>Download Resume</a>
-      ` : ''}
     `;
   }
 }
