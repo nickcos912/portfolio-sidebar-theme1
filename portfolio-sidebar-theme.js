@@ -174,7 +174,7 @@ class PortfolioSidebarTheme extends LitElement {
       font-size: 1em;
     }
     nav button:hover {
-      background: #222;
+      background: #444;
     }
     main {
       flex: 1;
@@ -200,7 +200,7 @@ class PortfolioSidebarTheme extends LitElement {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      background: #0a1931;
+      background: #222;
       color: white;
       border: none;
       border-radius: 50%;
