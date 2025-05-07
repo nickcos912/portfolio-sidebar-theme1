@@ -11,11 +11,11 @@ class ResumeSection extends LitElement {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       height: 100%;
       text-align: center;
     }
     .download-resume-btn {
-      display: inline-block;
       margin-top: 1.5rem;
       background: #0f3169;
       color: white;
@@ -24,6 +24,7 @@ class ResumeSection extends LitElement {
       border-radius: 20px;
       border: 1px solid white;
       transition: background 0.3s;
+      font-size: 1rem;
     }
     .download-resume-btn:hover {
       background: #3a7bd5;
@@ -59,6 +60,7 @@ class ProjectsSection extends LitElement {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       height: 100%;
       text-align: center;
     }
@@ -99,6 +101,7 @@ class AboutSection extends LitElement {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       height: 100%;
       text-align: center;
     }
@@ -149,14 +152,19 @@ class PortfolioSidebarTheme extends LitElement {
       align-items: center;
       padding: 2em 1em;
       gap: 1.5em;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
     }
     nav button {
       background: none;
       border: none;
       color: inherit;
       cursor: pointer;
-      width: 100%;
-      padding: 0.8em;
+      width: auto;
+      padding: 0.5em 1em;
       font-size: 1em;
     }
     nav button:hover {
@@ -164,6 +172,7 @@ class PortfolioSidebarTheme extends LitElement {
     }
     main {
       flex: 1;
+      margin-left: 200px;
       overflow-y: auto;
     }
     section {
@@ -194,6 +203,7 @@ class PortfolioSidebarTheme extends LitElement {
       height: 40px;
       font-size: 1.2rem;
       cursor: pointer;
+      z-index: 100;
     }
   `;
 
@@ -203,7 +213,7 @@ class PortfolioSidebarTheme extends LitElement {
   }
 
   _scrollTo(id) {
-    const el = document.querySelector(`#${id}`);
+    const el = this.shadowRoot.querySelector('main')?.querySelector(`#${id}`) || document.querySelector(`#${id}`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
       history.pushState(null, '', `#${id}`);
@@ -222,7 +232,7 @@ class PortfolioSidebarTheme extends LitElement {
   }
 
   _scrollToTop() {
-    const main = this.renderRoot.querySelector('main');
+    const main = this.shadowRoot.querySelector('main');
     if (main) {
       main.scrollTo({ top: 0, behavior: 'smooth' });
       history.pushState(null, '', '#screen-1');
