@@ -14,6 +14,20 @@ class ResumeSection extends LitElement {
       height: 100%;
       text-align: center;
     }
+    .download-resume-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #0f3169;
+      color: white;
+      text-decoration: none;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      border: 1px solid white;
+      transition: background 0.3s;
+    }
+    .download-resume-btn:hover {
+      background: #3a7bd5;
+    }
   `;
   render() {
     return html`
@@ -50,7 +64,10 @@ class ProjectsSection extends LitElement {
     }
   `;
   render() {
-    return html`<slot></slot>`;
+    return html`
+      <h2>Projects</h2>
+      <slot></slot>
+    `;
   }
 }
 customElements.define('projects-section', ProjectsSection);
