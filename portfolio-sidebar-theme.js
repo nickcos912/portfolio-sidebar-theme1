@@ -179,11 +179,9 @@ class PortfolioSidebarTheme extends LitElement {
     main {
       flex: 1;
       overflow-y: auto;
-      scroll-snap-type: y mandatory;
     }
     section {
-      height: 100vh;
-      scroll-snap-align: start;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
