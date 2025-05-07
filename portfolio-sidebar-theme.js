@@ -4,7 +4,138 @@
  */
 // portfolio-sidebar-theme.js
 import { LitElement, html, css } from 'lit';
-import './custom-sections.js';
+
+class ResumeSection extends LitElement {
+  static styles = css`
+    :host {
+      display: block;
+      padding: 2em;
+      text-align: center;
+    }
+    h2, h3, h4 {
+      margin: 0.5em 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    .download-resume-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #0f3169;
+      color: white;
+      text-decoration: none;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      border: 1px solid white;
+      transition: background 0.3s;
+    }
+    .download-resume-btn:hover {
+      background: #3a7bd5;
+    }
+  `;
+  render() {
+    return html`
+      <section id="screen-2">
+        <h2>Resume</h2>
+        <h3>Nicholas Costanzo</h3>
+        <p>ETI Student | The Pennsylvania State University</p>
+        <h4>Summary</h4>
+        <p>
+          Detail-oriented and motivated ETI student with a strong foundation in technology integration, cybersecurity awareness,
+          and team-based problem solving. Committed to continuous learning and leveraging modern tools to support business innovation.
+        </p>
+        <h4>Skills</h4>
+        <ul>
+          <li>System Analysis & Integration</li>
+          <li>Cybersecurity Fundamentals</li>
+          <li>Strong communication & teamwork</li>
+        </ul>
+        <h4>Education</h4>
+        <p>The Pennsylvania State University — B.S. in Enterprise Technology Integration (Pursuing)</p>
+        <a href="/Nicholas_Costanzo_Resume.pdf" download class="download-resume-btn">Download Resume</a>
+      </section>
+    `;
+  }
+}
+customElements.define('resume-section', ResumeSection);
+
+class ProjectsSection extends LitElement {
+  static styles = css`
+    :host {
+      display: block;
+      padding: 2em;
+      text-align: center;
+    }
+    .project {
+      margin-bottom: 2em;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  `;
+  render() {
+    return html`
+      <section id="screen-3">
+        <h2>Projects</h2>
+        <slot></slot>
+      </section>
+    `;
+  }
+}
+customElements.define('projects-section', ProjectsSection);
+
+class ProjectItem extends LitElement {
+  static styles = css`
+    :host {
+      display: block;
+      margin-bottom: 2em;
+      padding: 0 1em;
+    }
+    h3 {
+      margin-bottom: 0.5em;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  `;
+  render() {
+    return html`<slot></slot>`;
+  }
+}
+customElements.define('project-item', ProjectItem);
+
+class AboutSection extends LitElement {
+  static styles = css`
+    :host {
+      display: block;
+      padding: 2em;
+      text-align: center;
+    }
+    .about-text {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      padding: 0 1rem;
+    }
+  `;
+  render() {
+    return html`
+      <section id="screen-4">
+        <h2>About Me</h2>
+        <div class="about-text">
+          I am currently pursuing a degree in Enterprise Technology Integration at Penn State. 
+          I’m passionate about problem-solving and applying technology to create real-world solutions.
+          I enjoy hanging with friends and learning new techniques to hone my skills in my free time.
+        </div>
+      </section>
+    `;
+  }
+}
+customElements.define('about-section', AboutSection);
 
 class PortfolioSidebarTheme extends LitElement {
   static properties = {
@@ -43,7 +174,7 @@ class PortfolioSidebarTheme extends LitElement {
       font-size: 1em;
     }
     nav button:hover {
-      background: #222;
+      background: #444;
     }
     main {
       flex: 1;
