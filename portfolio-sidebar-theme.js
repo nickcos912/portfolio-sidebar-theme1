@@ -174,7 +174,7 @@ class PortfolioSidebarTheme extends LitElement {
       font-size: 1em;
     }
     nav button:hover {
-      background: #444;
+      background: #222;
     }
     main {
       flex: 1;
@@ -200,7 +200,7 @@ class PortfolioSidebarTheme extends LitElement {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      background: #222;
+      background: #0a1931;
       color: white;
       border: none;
       border-radius: 50%;
@@ -217,7 +217,7 @@ class PortfolioSidebarTheme extends LitElement {
   }
 
   _scrollTo(id) {
-    const el = this.renderRoot.querySelector(`#${id}`);
+    const el = document.querySelector(`#${id}`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
       history.pushState(null, '', `#${id}`);
