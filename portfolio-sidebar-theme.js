@@ -9,52 +9,28 @@ class ResumeSection extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 2em;
       text-align: center;
-    }
-    h2, h3, h4 {
-      margin: 0.5em 0;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    .download-resume-btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      background: #0f3169;
-      color: white;
-      text-decoration: none;
-      padding: 0.5em 1em;
-      border-radius: 20px;
-      border: 1px solid white;
-      transition: background 0.3s;
-    }
-    .download-resume-btn:hover {
-      background: #3a7bd5;
     }
   `;
   render() {
     return html`
-      <section id="screen-2">
-        <h2>Resume</h2>
-        <h3>Nicholas Costanzo</h3>
-        <p>ETI Student | The Pennsylvania State University</p>
-        <h4>Summary</h4>
-        <p>
-          Detail-oriented and motivated ETI student with a strong foundation in technology integration, cybersecurity awareness,
-          and team-based problem solving. Committed to continuous learning and leveraging modern tools to support business innovation.
-        </p>
-        <h4>Skills</h4>
-        <ul>
-          <li>System Analysis & Integration</li>
-          <li>Cybersecurity Fundamentals</li>
-          <li>Strong communication & teamwork</li>
-        </ul>
-        <h4>Education</h4>
-        <p>The Pennsylvania State University — B.S. in Enterprise Technology Integration (Pursuing)</p>
-        <a href="/Nicholas_Costanzo_Resume.pdf" download class="download-resume-btn">Download Resume</a>
-      </section>
+      <h2>Resume</h2>
+      <h3>Nicholas Costanzo</h3>
+      <p>ETI Student | The Pennsylvania State University</p>
+      <h4>Summary</h4>
+      <p>
+        Detail-oriented and motivated ETI student with a strong foundation in technology integration, cybersecurity awareness,
+        and team-based problem solving. Committed to continuous learning and leveraging modern tools to support business innovation.
+      </p>
+      <h4>Skills</h4>
+      <ul>
+        <li>System Analysis & Integration</li>
+        <li>Cybersecurity Fundamentals</li>
+        <li>Strong communication & teamwork</li>
+      </ul>
+      <h4>Education</h4>
+      <p>The Pennsylvania State University — B.S. in Enterprise Technology Integration (Pursuing)</p>
+      <a href="/Nicholas_Costanzo_Resume.pdf" download class="download-resume-btn">Download Resume</a>
     `;
   }
 }
@@ -64,24 +40,11 @@ class ProjectsSection extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 2em;
       text-align: center;
-    }
-    .project {
-      margin-bottom: 2em;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
     }
   `;
   render() {
-    return html`
-      <section id="screen-3">
-        <h2>Projects</h2>
-        <slot></slot>
-      </section>
-    `;
+    return html`<slot></slot>`;
   }
 }
 customElements.define('projects-section', ProjectsSection);
@@ -111,7 +74,6 @@ class AboutSection extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 2em;
       text-align: center;
     }
     .about-text {
@@ -124,14 +86,12 @@ class AboutSection extends LitElement {
   `;
   render() {
     return html`
-      <section id="screen-4">
-        <h2>About Me</h2>
-        <div class="about-text">
-          I am currently pursuing a degree in Enterprise Technology Integration at Penn State. 
-          I’m passionate about problem-solving and applying technology to create real-world solutions.
-          I enjoy hanging with friends and learning new techniques to hone my skills in my free time.
-        </div>
-      </section>
+      <h2>About Me</h2>
+      <div class="about-text">
+        I am currently pursuing a degree in Enterprise Technology Integration at Penn State. 
+        I’m passionate about problem-solving and applying technology to create real-world solutions.
+        I enjoy hanging with friends and learning new techniques to hone my skills in my free time.
+      </div>
     `;
   }
 }
@@ -259,37 +219,43 @@ class PortfolioSidebarTheme extends LitElement {
           <p>ETI Student | The Pennsylvania State University</p>
         </section>
 
-        <resume-section></resume-section>
+        <section id="screen-2">
+          <resume-section></resume-section>
+        </section>
 
-        <projects-section>
-          <project-item>
-            <h3>IT Security Risk Tool (NLNB Project)</h3>
-            <p>
-              Designed and implemented an IT risk assessment tool for Nittany Lion National Bank.
-              Used PHP, MySQL, and HTML/CSS to track vulnerabilities and recommend mitigation steps.
-            </p>
-            <ul>
-              <li>Used ETL pipelines for data handling</li>
-              <li>Built user interface with DDD components</li>
-              <li>Applied cybersecurity frameworks (NIST)</li>
-            </ul>
-          </project-item>
+        <section id="screen-3">
+          <projects-section>
+            <project-item>
+              <h3>IT Security Risk Tool (NLNB Project)</h3>
+              <p>
+                Designed and implemented an IT risk assessment tool for Nittany Lion National Bank.
+                Used PHP, MySQL, and HTML/CSS to track vulnerabilities and recommend mitigation steps.
+              </p>
+              <ul>
+                <li>Used ETL pipelines for data handling</li>
+                <li>Built user interface with DDD components</li>
+                <li>Applied cybersecurity frameworks (NIST)</li>
+              </ul>
+            </project-item>
 
-          <project-item>
-            <h3>Personal Portfolio Website</h3>
-            <p>
-              Built this portfolio using LitElement, DDD design tokens, and deployed via GitHub and Vercel.
-              Fully responsive and scroll-snapping between screens.
-            </p>
-            <ul>
-              <li>JavaScript modules + custom web components</li>
-              <li>GitHub-integrated deployment to Vercel</li>
-              <li>Dynamic scroll navigation and styling</li>
-            </ul>
-          </project-item>
-        </projects-section>
+            <project-item>
+              <h3>Personal Portfolio Website</h3>
+              <p>
+                Built this portfolio using LitElement, DDD design tokens, and deployed via GitHub and Vercel.
+                Fully responsive and scroll-snapping between screens.
+              </p>
+              <ul>
+                <li>JavaScript modules + custom web components</li>
+                <li>GitHub-integrated deployment to Vercel</li>
+                <li>Dynamic scroll navigation and styling</li>
+              </ul>
+            </project-item>
+          </projects-section>
+        </section>
 
-        <about-section></about-section>
+        <section id="screen-4">
+          <about-section></about-section>
+        </section>
 
         <section id="screen-5">
           <h2>Contact</h2>
