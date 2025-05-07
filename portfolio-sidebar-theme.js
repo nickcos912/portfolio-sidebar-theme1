@@ -8,7 +8,10 @@ import { LitElement, html, css } from 'lit';
 class ResumeSection extends LitElement {
   static styles = css`
     :host {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
       text-align: center;
     }
   `;
@@ -39,7 +42,10 @@ customElements.define('resume-section', ResumeSection);
 class ProjectsSection extends LitElement {
   static styles = css`
     :host {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
       text-align: center;
     }
   `;
@@ -73,7 +79,10 @@ customElements.define('project-item', ProjectItem);
 class AboutSection extends LitElement {
   static styles = css`
     :host {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
       text-align: center;
     }
     .about-text {
